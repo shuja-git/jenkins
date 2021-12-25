@@ -21,7 +21,7 @@
 //     }
 // }
 pipeline {
-    agent any
+    agent { label 'WORKSTATION' }
 
     stages {
         stage('Ansible Playbook run') {
