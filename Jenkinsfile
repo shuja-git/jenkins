@@ -22,7 +22,9 @@
 // }
 pipeline {
     agent { label 'WORKSTATION' }
-
+     options {
+            ansiColor('xterm')
+        }
     stages {
         stage('Ansible Playbook run') {
             steps {
