@@ -98,20 +98,41 @@
 // }
 // -------------------------------------------
 // environment example
+// pipeline {
+//     agent any
+//     environment {
+//         URL1 = 'google.com'
+//     }
+//     stages {
+//         stage('ENV example') {
+//             steps {
+//                 sh 'echo ${URL1}'
+//                 echo URL1
+//             }
+//         }
+//     }
+// }
+// ------------------------------------------------
+// reading secrets using environment variable
 pipeline {
     agent any
     environment {
-        URL1 = 'google.com'
+        SSH = credentials('CENTOS')
     }
     stages {
-        stage('ENV example') {
+        stage('reading secrets') {
             steps {
-                sh 'echo ${URL1}'
-                echo URL1
+                echo SSH
             }
         }
     }
+
 }
+
+
+
+
+
 
 
 
