@@ -54,6 +54,7 @@ pipeline {
         stage('stage1') {
             steps {
                 sh 'echo -e "\\e[1;32mGreenColor\\e[0m"'
+                sh 'echo -e "\\e[1;33mYelloColor\\e[0m"'
             }
         }
     }
