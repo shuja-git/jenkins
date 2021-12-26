@@ -118,12 +118,16 @@ pipeline {
     agent any
     environment {
         SSH = credentials('CENTOS')
+        SSH1 = credentials('common/ssh')
     }
     stages {
         stage('reading secrets') {
             steps {
                 echo SSH
                 sh 'env'
+                echo SSH1
+                sh 'echo ${SSH1} | base64'
+
             }
         }
     }
