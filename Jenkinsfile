@@ -82,20 +82,54 @@
 //   }
 // ------------------------------------------
 // options example
+// pipeline {
+//     agent any
+//     options {
+//         disableConcurrentBuilds()
+//     }
+//
+//     stages  {
+//         stage('options example') {
+//             steps {
+//                 sh 'sleep 10'
+//             }
+//         }
+//     }
+// }
+// -------------------------------------------
+// environment example
 pipeline {
     agent any
-    options {
-        disableConcurrentBuilds()
+    environment {
+        URL1 = 'google.com'
     }
-
-    stages  {
-        stage('options example') {
+    stages {
+        stage('ENV example') {
             steps {
-                sh 'sleep 10'
+                sh 'echo ${URL1}'
+                echo URL1
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
