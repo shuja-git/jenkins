@@ -35,17 +35,30 @@
 //     }
 // }
 // -----------------------------------------------------
+// pipeline {
+//     agent any
+//
+//     stages  {
+//         stage('Ansible Playbook run') {
+//             steps {
+//                 sh 'ansible-playbook 01-simple-playbook.yml'
+//             }
+//         }
+//     }
+// }
+// ---------------------------------
 pipeline {
     agent any
 
-    stages  {
-        stage('Ansible Playbook run') {
+    stages {
+        stage('stage1') {
             steps {
-                sh 'ansible-playbook 01-simple-playbook.yml'
+                sh 'echo -e "\\e[1;32mGreenColor\\e[0m"'
             }
         }
     }
 }
+
 
 
 
