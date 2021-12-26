@@ -62,8 +62,40 @@ pipeline {
 //         }
 //     }
 // }
+// ----------------------------------------
+// Agent syntax example
+// pipeline {
+//     agent any
+//     agent none
+//     agent {
+//         node { 'node1'}
+//     }
+//     agent { label 'ANSIBLE' && 'CENTOS'}
+//   }
+//   stages {
+//     stage('sample') {
+//         agent { label 'UBUNTU'}
+//         steps {
+//          sh 'echo hello'
+//         }
+//     }
+//   }
+// ------------------------------------------
+// options example
+pipeline {
+    agent any
+    options {
+        disableConcurrentBuilds()
+    }
 
-
+    stages  {
+        stage('options example') {
+            steps {
+                sh 'echo this is disableConcurrentBuilds option example'
+            }
+        }
+    }
+}
 
 
 
