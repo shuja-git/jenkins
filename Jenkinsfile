@@ -123,6 +123,7 @@ pipeline {
         stage('reading secrets') {
             steps {
                 echo SSH
+                sh 'env'
             }
         }
     }
