@@ -119,7 +119,7 @@ pipeline {
     agent any
     environment {
         SSH = credentials('CENTOS')
-        SSH1 = credentials("newrelic-api-key")
+        SSH1 = credentials("common/ssh")
     }
     stages {
         stage('reading secrets') {
