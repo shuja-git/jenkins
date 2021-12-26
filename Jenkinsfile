@@ -35,20 +35,20 @@
 //     }
 // }
 // -----------------------------------------------------
-pipeline {
-    agent { label 'WORKSTATION' }
-     options {
-            ansiColor('xterm')
-        }
-
-    stages  {
-        stage('Ansible Playbook run') {
-            steps {
-                sh 'ansible-playbook 01-simple-playbook.yml'
-            }
-        }
-    }
-}
+// pipeline {
+//     agent { label 'WORKSTATION' }
+//      options {
+//             ansiColor('xterm')
+//         }
+//
+//     stages  {
+//         stage('Ansible Playbook run') {
+//             steps {
+//                 sh 'ansible-playbook 01-simple-playbook.yml'
+//             }
+//         }
+//     }
+// }
 // ---------------------------------
 // pipeline {
 //     agent any
