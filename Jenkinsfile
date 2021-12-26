@@ -114,6 +114,7 @@
 // }
 // ------------------------------------------------
 // reading secrets using environment variable
+
 pipeline {
     agent any
     environment {
@@ -133,6 +134,7 @@ pipeline {
     }
 
 }
+
 
 
 
