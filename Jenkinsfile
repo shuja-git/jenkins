@@ -35,30 +35,30 @@
 //     }
 // }
 // -----------------------------------------------------
-// pipeline {
-//     agent any
-//
-//     stages  {
-//         stage('Ansible Playbook run') {
-//             steps {
-//                 sh 'ansible-playbook 01-simple-playbook.yml'
-//             }
-//         }
-//     }
-// }
-// ---------------------------------
 pipeline {
-    agent any
+    agent { label 'WORKSTATION' }
 
-    stages {
-        stage('stage1') {
+    stages  {
+        stage('Ansible Playbook run') {
             steps {
-                sh 'echo -e "\\e[1;32mThis code is from git\\e[0m"'
-                sh 'echo -e "\\e[1;33mfor Pipeline Declarative script\\e[0m"'
+                sh 'ansible-playbook 01-simple-playbook.yml'
             }
         }
     }
 }
+// ---------------------------------
+// pipeline {
+//     agent any
+//
+//     stages {
+//         stage('stage1') {
+//             steps {
+//                 sh 'echo -e "\\e[1;32mThis code is from git\\e[0m"'
+//                 sh 'echo -e "\\e[1;33mfor Pipeline Declarative script\\e[0m"'
+//             }
+//         }
+//     }
+// }
 
 
 
