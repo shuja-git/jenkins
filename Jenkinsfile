@@ -91,7 +91,7 @@ pipeline {
     stages  {
         stage('options example') {
             steps {
-                sh 'echo this is disableConcurrentBuilds option example'
+                sh 'sleep 10'
             }
         }
     }
