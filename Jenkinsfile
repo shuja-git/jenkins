@@ -47,18 +47,18 @@
 //     }
 // }
 // ---------------------------------
-// pipeline {
-//     agent any
-//
-//     stages {
-//         stage('stage1') {
-//             steps {
-//                 sh 'echo -e "\\e[1;32mGreenColor\\e[0m"'
-//                 sh 'echo -e "\\e[1;33mYelloColor\\e[0m"'
-//             }
-//         }
-//     }
-// }
+pipeline {
+    agent any
+
+    stages {
+        stage('stage1') {
+            steps {
+                sh 'echo -e "\\e[1;32mThis code is from git\\e[0m"'
+                sh 'echo -e "\\e[1;33mfor Pipeline Declarative script\\e[0m"'
+            }
+        }
+    }
+}
 
 
 
