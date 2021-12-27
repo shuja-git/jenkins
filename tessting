@@ -1,0 +1,15 @@
+ options example
+ pipeline {
+     agent any
+//     options {
+//         disableConcurrentBuilds()
+//     }
+//
+//     stages  {
+//         stage('options example') {
+//             steps {
+//                 sh 'sleep 10'
+//             }
+//         }
+//     }
+// }
