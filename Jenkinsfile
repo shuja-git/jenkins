@@ -132,6 +132,7 @@ pipeline {
         }
          stage('ansible-playbook run') {
           agent { label 'PLAYBOOK' }
+          options { ansiColor('xterm') }
             steps {
                sh 'ansible-playbook 01-simple-playbook.yml'
                 }
