@@ -1,13 +1,13 @@
 pipeline {
     agent any
     environment {
-        ENV_VAR = 'google.com'
+        UNAME = credentials('CENTOS')
     }
     stages {
-        stage('env var example') {
+        stage('reading secret') {
             steps {
-                sh 'echo ${ENV_VAR}'
-                echo ENV_VAR
+                sh 'echo ${UNAME}'
+                echo UNAME
             }
         }
         }
