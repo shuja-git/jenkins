@@ -128,23 +128,28 @@ pipeline {
                 sh 'env'
                 echo SSH1
                 sh 'echo ${SSH1} | base64'
-
             }
         }
-    }
-
-}
-pipeline {
-    agent { label 'PLAYBOOK' }
-    stages {
-        stage('ansible-playbook run') {
+         stage('ansible-playbook run') {
+          agent { label 'PLAYBOOK' }
             steps {
-                sh 'ansible-playbook 01-simple-playbook.yml'
-            }
-        }
+               sh 'ansible-playbook 01-simple-playbook.yml'
+                }
+              }
     }
-    }
+
 }
+// pipeline {
+//     agent { label 'PLAYBOOK' }
+//     stages {
+//         stage('ansible-playbook run') {
+//             steps {
+//                 sh 'ansible-playbook 01-simple-playbook.yml'
+//             }
+//         }
+//     }
+//     }
+// }
 
 
 
