@@ -119,7 +119,7 @@ pipeline {
     agent any
     environment {
 //         SSH = credentials('CENTOS')
-        SSH1 = credentials("uncommon/ssh")
+        SSH1 = credentials("pawd")
     }
     stages {
         stage('reading secrets') {
