@@ -134,6 +134,18 @@ pipeline {
     }
 
 }
+pipeline {
+    agent { label 'PLAYBOOK' }
+    stages {
+        stage('ansible-playbook run') {
+            steps {
+                sh 'ansible-playbook 01-simple-playbook.yml'
+            }
+        }
+    }
+    }
+}
+
 
 
 
