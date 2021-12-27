@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    environment {
+        ENV_VAR = 'google.com'
+    }
+    stages {
+        stage('env var example') {
+            steps {
+                sh 'echo ${ENV_VAR}'
+                echo ENV_VAR
+            }
+        }
+        }
+}
+
