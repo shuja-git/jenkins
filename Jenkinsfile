@@ -113,33 +113,34 @@
 //     }
 // }
 // ------------------------------------------------
-// reading secrets using environment variable
-
-pipeline {
-    agent any
-    environment {
-//         SSH = credentials('CENTOS')
-        SSH1 = credentials("pawd")
-    }
-    stages {
-        stage('reading secrets') {
-            steps {
-//                 echo SSH
-                sh 'env'
-                echo SSH1
-                sh 'echo ${SSH1} | base64'
-            }
-        }
-         stage('ansible-playbook run') {
-          agent { label 'PLAYBOOK' }
-          options { ansiColor('xterm') }
-            steps {
-               sh 'ansible-playbook 01-simple-playbook.yml'
-                }
-              }
-    }
-
-}
+// reading secrets using environment variable and
+// in the stage2 run the ansible playbook
+//
+// pipeline {
+//     agent any
+//     environment {
+// //         SSH = credentials('CENTOS')
+//         SSH1 = credentials("pawd")
+//     }
+//     stages {
+//         stage('reading secrets') {
+//             steps {
+// //                 echo SSH
+//                 sh 'env'
+//                 echo SSH1
+//                 sh 'echo ${SSH1} | base64'
+//             }
+//         }
+//          stage('ansible-playbook run') {
+//           agent { label 'PLAYBOOK' }
+//           options { ansiColor('xterm') }
+//             steps {
+//                sh 'ansible-playbook 01-simple-playbook.yml'
+//                 }
+//               }
+//     }
+//
+// }
 // pipeline {
 //     agent { label 'PLAYBOOK' }
 //     stages {
@@ -151,8 +152,37 @@ pipeline {
 //     }
 //     }
 // }
+//
+// ---------------------------------------------------------------
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
+            }
+        }
+    }
+}
 
 
 
