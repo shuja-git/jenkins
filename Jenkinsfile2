@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('reading secret') {
             steps {
-                sh 'echo ${UNAME}'
-                echo UNAME | base64
+                sh 'echo ${UNAME} | base64'
+
             }
         }
         }
