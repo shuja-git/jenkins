@@ -186,20 +186,38 @@
 // }
 //----------------------------------------------------------------------------
 // tools example
+// pipeline {
+//     agent any
+//      tools {
+//             maven 'maven 3.8.4'
+//         }
+//     stages {
+//         stage('Maven') {
+//             steps {
+//                 sh 'mvn --version'
+//             }
+//         }
+//     }
+// }
+// ----------------------------------------------------------------
 pipeline {
     agent any
-     tools {
-            maven 'maven 3.8.4'
-        }
     stages {
-        stage('Maven') {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             steps {
-                sh 'mvn --version'
+                echo "Hello, ${PERSON}, nice to meet you."
             }
         }
     }
 }
-
 
 
 
